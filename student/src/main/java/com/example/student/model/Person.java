@@ -3,13 +3,15 @@ package com.example.student.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Student extends BaseEntity {
+@Entity
+public class Person extends BaseEntity {
 
     private int personId;
 
