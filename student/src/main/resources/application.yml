@@ -2,7 +2,7 @@ spring:
   application:
     name: student
   datasource:
-    url: jdbc:mysql://localhost:3306/student?useSSL=false
+    url: jdbc:mysql://localhost:3306/school_application?useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -11,3 +11,27 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  security:
+    user:
+      name: user
+      password: password
+  config:
+    import: application_prod.yml,application_uat.yml
+  profile:
+    active: prod
+server:
+  port: 8081
+  servlet:
+    context-path: /school/api/
+
+weather:
+  api:
+    url: http://api.weatherapi.com/v1/current.json
+    key: ${WEATHER_API_KEY}
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
